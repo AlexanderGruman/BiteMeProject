@@ -55,13 +55,16 @@ public class LoginPageController {
         ArrayList<String> sendToServer = new ArrayList<String>();
         sendToServer.add(userInput);
         sendToServer.add(passInput);
-        client.requestDetails(new CommMessage(CommandConstants.loginCommand,sendToServer));
+        client.RequestData(new CommMessage(CommandConstants.loginCommand,sendToServer));
         
         ((Node)event.getSource()).getScene().getWindow().hide();
     }
     
     public void logoutPressed(ActionEvent event) throws Exception {
-    	client.closeUserGUI(new CommMessage(CommandConstants.logOutCommand));
+        ArrayList<String> sendToServer = new ArrayList<String>();
+        sendToServer.add(client.user.getUserName());
+        sendToServer.add(client.user.getPassword());
+    	client.SendLoggoutRequest(new CommMessage(CommandConstants.logOutCommand,sendToServer));
     }
     
   

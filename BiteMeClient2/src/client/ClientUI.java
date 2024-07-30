@@ -66,10 +66,14 @@ public class ClientUI extends Application {
 	public void closeUserGUI(User user) {
 		guiConverter("Login Page","/gui/LoginPage.fxml");
 	}
+	public void SendLoggoutRequest(CommMessage commMessage)
+	{
+		chat.accept(commMessage);
+	}
 	//////// ---> Personal page controller methods <--- ////////
 	public void sendUserPersonalData(CommMessage commMessage)
 	{
-		chat.accept(commMessage.toString());
+		chat.accept(commMessage);
 	}
 	
 	/////////////////////////////////////////
@@ -82,7 +86,7 @@ public class ClientUI extends Application {
 	//////// ---> PickRestaurantpage controller methods <--- ////////
 	public void SendRestaurantData(CommMessage commMessage)
 	{
-		chat.accept(commMessage.toString());
+		chat.accept(commMessage);
 	}
 	
 	@Override
@@ -97,6 +101,10 @@ public class ClientUI extends Application {
 		chat = new ClientController(ip, 5555);
 	}
 	
+	public void RequestData(CommMessage comm)
+	{
+		chat.accept(comm);
+	}
 	
 	public void guiConverter(String title,String fxmlStringPath)
 	{

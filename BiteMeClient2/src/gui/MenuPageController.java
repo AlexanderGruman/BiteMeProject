@@ -16,47 +16,43 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import logic.CommMessage;
 import logic.Supplier;
 
-public class RestaurantController {
-	public ArrayList<Supplier> getResList() {
-		return reslist;
-	}
-	public void setResList(ArrayList<Supplier> reslist) {
-		this.reslist = reslist;
-	}
+public class MenuPageController {
 	private ClientUI client;
-	private ObservableList<Supplier> data;
+	private ObservableList<Menu> data;
 	@FXML
 	private Button btnBack;
 	@FXML
-	private TableView<Supplier> resTable;
+	private TableView<Menu> MenuTable;
 	@FXML
-	private TableColumn<Supplier,String> resName;
+	private TableColumn<Menu,String> MenuName;
 	@FXML
 	private TableColumn<String,Button> btnChoose;
+	@FXML
+	private Button[] ChooseDishBtn;
 	
 	@FXML
 	public void Intialize()
 	{
-		ArrayList<String>
-		client.SendRestaurantData(new CommMessage(new CommandConstants().getRestaurantDataCommand,));
+		ArrayList<String> restaurant=new ArrayList<String>();
+		restaurant.add(client.supplier.getRestaurantName());
+		client.SendMenuData(new CommMessage(new CommandConstants().getMenuDataCommand,restaurant));
 	}
 	public void setTable()
 	{
         // Initialize the columns.
-		resName.setCellValueFactory(new PropertyValueFactory<>("name"));
+		MenuName.setCellValueFactory(new PropertyValueFactory<>("name"));
 		btnChoose.setCellValueFactory(new PropertyValueFactory<>("chooseMenuButton"));
-
         // Initialize the data list and set it to the TableView.
         data = FXCollections.observableArrayList();
-        resTable.setItems(data);
-        Supplier newRestaurant = new Supplier(client.supplier.getRestaurantName(),client.supplier.getRestaurantType()); // Replace with actual data.
-        data.add(newRestaurant);
+        MenuTable.setItems(data);
+        Menu newMenu = new Menu(data.); // Replace with actual data.
+        
+        data.add(newMenu);
 	}
 	public void Back(ActionEvent event) throws Exception {
 		((Node) event.getSource()).getScene().getWindow().hide();
-		client.guiConverter("Start Order", "/gui/UserHomePage.fxml");
+		client.guiConverter("Restaurant page", "/gui/RestaurantPage.fxml");
 
 	}
-	
 
 }

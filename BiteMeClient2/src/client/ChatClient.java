@@ -47,6 +47,7 @@ public class ChatClient extends AbstractClient {
 		case "Logout":
 			if (messageFromSrv.isSucceeded()) {
 				User user = (User) messageFromSrv.getDataFromServer();
+				clientui.user.setIsLoggedIn(0);
 				clientui.closeUserGUI(user);
 			} else {
 				System.out.println(messageFromSrv.getMsg());
@@ -59,41 +60,12 @@ public class ChatClient extends AbstractClient {
 			} else {
 				clientui.reciveMsgToGui("error in updating user");
 			}
+			break;
 
 		}
-		break;
 	}
 
-	if(equals("success")) {
-				Platform.runLater(() -> LoginPageController.getInstance().successfullLogin(permissions));
-			} else if(((ArrayList) msg).contains("GET")) {
-				Platform.runLater(() ->RestaurantController.setTable());
-			}
-			else
-			{
-				Platform.runLater(() -> LoginPageController.getInstance().UnSuccessfullLogin(wrong));
-			}
-			if(msg instanceof client)
-			{
-				Platform.runLater(() ->PersonalDataController.setClient(msg));
-			}
-		if (msg instanceof Order) {
-			targetOrder = (Order) msg;
-			Platform.runLater(() -> LoginPageController.getInstance().openUp(targetOrder));
-		} else if (msg instanceof String) {
-			if(((String) msg).contains("UPDATE"))
-			{
-				//cuts the update from the string
-				((String) msg).substring(5);
-				Platform.runLater(() ->PersonalDataController.setClient((Client)msg));
-			}
 
-				else {
-					LoginPageController.getInstance().displayUpdateFailedMessage();
-				}
-			};
-		awaitResponse = false;
-	}
 
 	public void handleMessageFromClientUI(Object msg) {
 		try {

@@ -63,9 +63,9 @@ public class DeliveryController {
 			error.setText("please fill all fields");
 		} else {
 	        ArrayList<String> sendToServer = new ArrayList<String>();
-	        sendToServer.add(userInput);
-	        sendToServer.add(passInput);
-	        client.requestDetails(new CommMessage(CommandConstants.loginCommand,sendToServer));
+	        sendToServer.add(client.user.getUserName());
+	        sendToServer.add(client.user.getUserName());
+	        client.RequestData(new CommMessage(CommandConstants.loginCommand,sendToServer));
 		}
 	}
 	public void back(ActionEvent event) throws Exception{
