@@ -55,7 +55,7 @@ public class LoginPageController {
         ArrayList<String> sendToServer = new ArrayList<String>();
         sendToServer.add(userInput);
         sendToServer.add(passInput);
-        client.RequestData(new CommMessage(CommandConstants.loginCommand,sendToServer));
+        client.RequestData(new CommMessage(CommandConstants.Login,sendToServer));
         
         ((Node)event.getSource()).getScene().getWindow().hide();
     }
@@ -64,7 +64,7 @@ public class LoginPageController {
         ArrayList<String> sendToServer = new ArrayList<String>();
         sendToServer.add(client.user.getUserName());
         sendToServer.add(client.user.getPassword());
-    	client.SendLoggoutRequest(new CommMessage(CommandConstants.logOutCommand,sendToServer));
+    	client.SendLoggoutRequest(new CommMessage(CommandConstants.LogOut,sendToServer));
     }
     
   

@@ -64,8 +64,8 @@ public class DeliveryController {
 		} else {
 	        ArrayList<String> sendToServer = new ArrayList<String>();
 	        sendToServer.add(client.user.getUserName());
-	        sendToServer.add(client.user.getUserName());
-	        client.RequestData(new CommMessage(CommandConstants.loginCommand,sendToServer));
+	        sendToServer.add(client.user.getPassword());
+	        client.RequestData(new CommMessage(CommandConstants.Login,sendToServer));
 		}
 	}
 	public void back(ActionEvent event) throws Exception{

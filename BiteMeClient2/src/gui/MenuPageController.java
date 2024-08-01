@@ -2,6 +2,7 @@ package gui;
 
 import java.util.ArrayList;
 
+
 import EnumsAndConstants.CommandConstants;
 import client.ClientUI;
 import javafx.collections.FXCollections;
@@ -10,49 +11,110 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.ListView;
 import logic.CommMessage;
-import logic.Supplier;
+import logic.items;
 
+/**
+ * Controller class for the Restaurant view.
+ */
 public class MenuPageController {
-	private ClientUI client;
-	private ObservableList<Menu> data;
-	@FXML
-	private Button btnBack;
-	@FXML
-	private TableView<Menu> MenuTable;
-	@FXML
-	private TableColumn<Menu,String> MenuName;
-	@FXML
-	private TableColumn<String,Button> btnChoose;
-	@FXML
-	private Button[] ChooseDishBtn;
-	
-	@FXML
-	public void Intialize()
-	{
-		ArrayList<String> restaurant=new ArrayList<String>();
-		restaurant.add(client.supplier.getRestaurantName());
-		client.SendMenuData(new CommMessage(new CommandConstants().getMenuDataCommand,restaurant));
-	}
-	public void setTable()
-	{
-        // Initialize the columns.
-		MenuName.setCellValueFactory(new PropertyValueFactory<>("name"));
-		btnChoose.setCellValueFactory(new PropertyValueFactory<>("chooseMenuButton"));
-        // Initialize the data list and set it to the TableView.
-        data = FXCollections.observableArrayList();
-        MenuTable.setItems(data);
-        Menu newMenu = new Menu(data.); // Replace with actual data.
+    private ClientUI client;
+
+    @FXML
+    private Button btnBack;
+
+    @FXML
+    private Button btnDone;
+    
+    @FXML
+    private Button finish;
+
+    @FXML
+    private ListView<items> lstview;
+
+    /**
+     * Initializes the controller class.
+     */
+    @FXML
+    public void Initialize() {
+        // Create a message to request the list of menus
+        ArrayList<String> msg = new ArrayList<>();
+        msg.add(String.valueOf(client.restaurant.getMenuId()));
+        CommMessage cmsg = new CommMessage(CommandConstants.GetMenu, msg);
         
-        data.add(newMenu);
-	}
-	public void Back(ActionEvent event) throws Exception {
-		((Node) event.getSource()).getScene().getWindow().hide();
-		client.guiConverter("Restaurant page", "/gui/RestaurantPage.fxml");
+    }
 
-	}
+    /**
+     * Sets the table with the list of menus.
+     *
+     * @param menlist The list of menus to display.
+     */
+    public void SetTable(ArrayList<items> menlist) {
+        // Convert ArrayList to ObservableList
+        ObservableList<items> observableList = FXCollections.observableArrayList(menlist);
 
+        // Set the items of the ListView
+        lstview.setItems(observableList);
+    }
+
+    /**
+     * Handles the Done button click event.
+     *
+     * @param event The ActionEvent triggered by the button click.
+     * @throws Exception If an error occurs during the operation.
+     */
+    @FXML
+    public void handleBtnDone(ActionEvent event) throws Exception {
+        // Add a listener to track the selected item
+        lstview.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            // newValue is the selected item
+            if (newValue != null) {
+            	client.currentitem = newValue;
+            	// Navigate to the MenuPage
+                client.guiConverter("DishPage", "/gui/DishPage.fxml");
+            	
+            }
+        });
+
+    }
+
+    /**
+     * Handles the Back button click event.
+     *
+     * @param event The ActionEvent triggered by the button click.
+     * @throws Exception If an error occurs during the operation.
+     */
+    @FXML
+    public void Back(ActionEvent event) throws Exception {
+        // Hide the current window
+        ((Node) event.getSource()).getScene().getWindow().hide();
+        // Open the Restaurant Page
+        client.guiConverter("RestaurantPage", "/gui/RestaurantPage.fxml");
+    }
+    
+    
+    /**
+     * Handles the Finish button click event.
+     *
+     * @param event The ActionEvent triggered by the button click.
+     * @throws Exception If an error occurs during the operation.
+     */
+    @FXML
+    public void handleButtonFinish(ActionEvent event) throws Exception {
+        // Navigate to the CartPage
+        client.guiConverter("CartPage", "/gui/CartPage.fxml");
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
 }

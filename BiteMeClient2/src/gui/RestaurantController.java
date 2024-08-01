@@ -2,6 +2,7 @@ package gui;
 
 import java.util.ArrayList;
 
+
 import EnumsAndConstants.CommandConstants;
 import client.ClientUI;
 import javafx.collections.FXCollections;
@@ -10,53 +11,81 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.ListView;
 import logic.CommMessage;
-import logic.Supplier;
+import logic.Restaurant;
 
+/**
+ * Controller class for the Restaurant view.
+ */
 public class RestaurantController {
-	public ArrayList<Supplier> getResList() {
-		return reslist;
-	}
-	public void setResList(ArrayList<Supplier> reslist) {
-		this.reslist = reslist;
-	}
-	private ClientUI client;
-	private ObservableList<Supplier> data;
-	@FXML
-	private Button btnBack;
-	@FXML
-	private TableView<Supplier> resTable;
-	@FXML
-	private TableColumn<Supplier,String> resName;
-	@FXML
-	private TableColumn<String,Button> btnChoose;
-	
-	@FXML
-	public void Intialize()
-	{
-		ArrayList<String>
-		client.SendRestaurantData(new CommMessage(new CommandConstants().getRestaurantDataCommand,));
-	}
-	public void setTable()
-	{
-        // Initialize the columns.
-		resName.setCellValueFactory(new PropertyValueFactory<>("name"));
-		btnChoose.setCellValueFactory(new PropertyValueFactory<>("chooseMenuButton"));
+    private ClientUI client;
 
-        // Initialize the data list and set it to the TableView.
-        data = FXCollections.observableArrayList();
-        resTable.setItems(data);
-        Supplier newRestaurant = new Supplier(client.supplier.getRestaurantName(),client.supplier.getRestaurantType()); // Replace with actual data.
-        data.add(newRestaurant);
-	}
-	public void Back(ActionEvent event) throws Exception {
-		((Node) event.getSource()).getScene().getWindow().hide();
-		client.guiConverter("Start Order", "/gui/UserHomePage.fxml");
+    @FXML
+    private Button btnBack;
 
-	}
-	
+    @FXML
+    private Button btnDone;
 
+    @FXML
+    private ListView<Restaurant> lstview;
+
+    /**
+     * Initializes the controller class.
+     */
+    @FXML
+    public void Initialize() {
+        // Create a message to request the list of restaurants
+        ArrayList<String> msg = new ArrayList<>();
+        CommMessage cmsg = new CommMessage(CommandConstants.GetRestaurants, msg);
+        
+    }
+
+    /**
+     * Sets the table with the list of restaurants.
+     *
+     * @param reslist The list of restaurants to display.
+     */
+    public void SetTable(ArrayList<Restaurant> reslist) {
+        // Convert ArrayList to ObservableList
+        ObservableList<Restaurant> observableList = FXCollections.observableArrayList(reslist);
+
+        // Set the items of the ListView
+        lstview.setItems(observableList);
+    }
+
+    /**
+     * Handles the Done button click event.
+     *
+     * @param event The ActionEvent triggered by the button click.
+     * @throws Exception If an error occurs during the operation.
+     */
+    @FXML
+    public void handleBtnDone(ActionEvent event) throws Exception {
+        // Add a listener to track the selected item
+        lstview.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            // newValue is the selected item
+            if (newValue != null) {
+                client.restaurant = newValue;
+             // Navigate to the MenuPage
+                client.guiConverter("MenuPage", "/gui/MenuPage.fxml");
+            }
+        });
+
+    }
+
+    /**
+     * Handles the Back button click event.
+     *
+     * @param event The ActionEvent triggered by the button click.
+     * @throws Exception If an error occurs during the operation.
+     */
+    @FXML
+    public void Back(ActionEvent event) throws Exception {
+        // Hide the current window
+        ((Node) event.getSource()).getScene().getWindow().hide();
+        // Open the user GUI
+        client.openUserGUI(client.user);
+    }
 }
+

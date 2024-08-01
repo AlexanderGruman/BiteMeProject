@@ -45,24 +45,28 @@
                   <Font size="50.0" />
                </font>
             </Label>
+            <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="744.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@userLogo.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </top>
    <right>
       <AnchorPane prefHeight="430.0" prefWidth="800.0" style="-fx-background-color: linear-gradient(to bottom right, #F0F0F0, #F0F0F0, #FFFFF);" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="332.0" layoutY="204.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="122.0" text="Start New Order" />
-            <Button layoutX="612.0" layoutY="205.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="122.0" text="Previous Order" />
-            <Button layoutX="742.0" layoutY="438.0" mnemonicParsing="false" text="Back" />
-            <Button layoutX="68.0" layoutY="203.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="123.0" text="Show  Receipts" />
-            <Button layoutX="23.0" layoutY="438.0" mnemonicParsing="false" text="Personal Data" />
+            <Button layoutX="56.0" layoutY="182.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="166.0" text="Start New Order" />
+            <Button layoutX="336.0" layoutY="182.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="166.0" text="Previous Orders" />
+            <Button layoutX="700.0" layoutY="438.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="Logout" />
             <Text layoutX="67.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello, thank you for choosing BiteMe, please select the desired option bellow." wrappingWidth="666.8034057617188">
                <font>
                   <Font size="19.0" />
                </font>
             </Text>
-            <Line endX="-12.66668701171875" endY="34.666656494140625" layoutX="257.0" layoutY="216.0" startX="-12.66668701171875" startY="-9.333343505859375" />
-            <Line endX="-12.66668701171875" endY="34.666656494140625" layoutX="565.0" layoutY="215.0" startX="-12.66668701171875" startY="-9.333343505859375" />
+            <Line endX="-12.66668701171875" endY="63.33331298828125" layoutX="291.0" layoutY="192.0" startX="-12.66668701171875" startY="-9.333343505859375" />
+            <Button layoutX="602.0" layoutY="180.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="166.0" text="Contact Us" />
+            <Line endX="-12.66668701171875" endY="63.33331298828125" layoutX="571.0" layoutY="192.0" startX="-12.66668701171875" startY="-9.333343505859375" />
          </children></AnchorPane>
    </right>
 </BorderPane>

@@ -11,7 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import logic.CommMessage;
-import logic.User;
+
 
 public class PersonalDataController {
 	private ClientUI clientui;
@@ -40,7 +40,7 @@ public class PersonalDataController {
 		ArrayList<String> data=new ArrayList<String>();
 		data.add(clientui.user.getUserName().toString());
 		data.add(clientui.user.getPassword().toString());
-		clientui.sendUserPersonalData(new CommMessage(CommandConstants.getPersonalDataCommand,data));
+		clientui.sendUserPersonalData(new CommMessage(CommandConstants.getPersonalData,data));
 	 Name.setText(clientui.user.getFirstName());
 	 Phone.setText(clientui.user.getPhoneNumber());
 	 FamilyName.setText(clientui.user.getLastName());
@@ -57,7 +57,7 @@ public class PersonalDataController {
 		clientui.user.setId(Id.getText());
 		ArrayList<String> data=new ArrayList<String>();
 		data.add(clientui.user.toString());
-		clientui.sendUserPersonalData(new CommMessage(CommandConstants.setPersonalDataCommand,data));
+		clientui.sendUserPersonalData(new CommMessage(CommandConstants.setPersonalData,data));
 		error.setText(clientui.ReturnMsgToGui());
 		error.setVisible(true);
 	}

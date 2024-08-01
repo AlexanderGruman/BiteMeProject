@@ -2,8 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Bloom?>
 <?import javafx.scene.effect.GaussianBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -13,6 +11,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <top>
@@ -20,7 +19,7 @@
          <children>
             <ImageView fitHeight="100.0" fitWidth="200.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@BiteMe_Logo.png" />
+                  <Image url="@../BiteMe_Logo.png" />
                </image>
             </ImageView>
             <Label layoutX="758.0" layoutY="14.0" text="בס&quot;ד">
@@ -41,34 +40,33 @@
                   <GaussianBlur />
                </effect>
             </Line>
-            <Label layoutX="327.0" layoutY="25.0" prefHeight="42.0" prefWidth="142.0" text="Login ">
+            <Text layoutX="166.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Branch Manager Page">
                <font>
                   <Font size="50.0" />
                </font>
-               <effect>
-                  <Bloom />
-               </effect>
-            </Label>
+            </Text>
+            <ImageView fitHeight="43.0" fitWidth="44.0" layoutX="734.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../userLogo.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </top>
-   <center>
+   <left>
       <AnchorPane prefHeight="430.0" prefWidth="800.0" style="-fx-background-color: linear-gradient(to bottom right, #F0F0F0, #F0F0F0, #FFFFF);" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="122.0" layoutY="118.0" prefHeight="26.0" prefWidth="89.0" text="User Name:">
+            <Button layoutX="694.0" layoutY="425.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="77.0" text="Logout" />
+            <Text layoutX="183.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello manager, what would you like to do today?">
                <font>
-                  <Font size="17.0" />
+                  <Font size="20.0" />
                </font>
-            </Label>
-            <Label layoutX="122.0" layoutY="190.0" prefHeight="31.0" prefWidth="101.0" text="Password:">
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Label>
-            <TextField layoutX="279.0" layoutY="119.0" prefHeight="25.0" prefWidth="222.0" />
-            <TextField layoutX="280.0" layoutY="193.0" prefHeight="25.0" prefWidth="219.0" />
-            <Button fx:id="btnLogin" layoutX="330.0" layoutY="276.0" mnemonicParsing="false" onAction="#sumbitCredentialsToServer" prefHeight="25.0" prefWidth="119.0" text="Login" />
-            <Button fx:id="btnExit" layoutX="660.0" layoutY="438.0" mnemonicParsing="false" onAction="#Exit" prefHeight="25.0" prefWidth="115.0" text="Exit" />
+            </Text>
+            <Button layoutX="43.0" layoutY="180.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="164.0" text="View Monthly Report" />
+            <Line endX="6.33331298828125" endY="58.33331298828125" layoutX="258.0" layoutY="191.0" startX="6.33331298828125" startY="-7.66668701171875" />
+            <Button layoutX="318.0" layoutY="179.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="164.0" text="Register New Customer" />
+            <Line endX="6.33331298828125" endY="58.33331298828125" layoutX="531.0" layoutY="191.0" startX="6.33331298828125" startY="-7.66668701171875" />
+            <Button layoutX="569.0" layoutY="179.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="164.0" text="Contact Us" />
          </children></AnchorPane>
-   </center>
+   </left>
 </BorderPane>

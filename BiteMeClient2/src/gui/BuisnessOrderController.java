@@ -2,26 +2,13 @@ package gui;
 
 import java.awt.Label;
 import java.awt.MenuItem;
-import java.io.IOException;
-import java.util.List;
-
 import client.ClientUI;
-import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBase;
-import javafx.scene.control.Labeled;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-import logic.Order;
 
 public class BuisnessOrderController {
 	private ClientUI client;

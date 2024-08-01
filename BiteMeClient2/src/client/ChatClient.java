@@ -12,6 +12,7 @@ import gui.RestaurantController;
 import javafx.application.Platform;
 import logic.CommMessage;
 import logic.Order;
+import logic.Supplier;
 import logic.User;
 import ocsf.client.AbstractClient;
 
@@ -46,8 +47,8 @@ public class ChatClient extends AbstractClient {
 			break;
 		case "Logout":
 			if (messageFromSrv.isSucceeded()) {
-				User user = (User) messageFromSrv.getDataFromServer();
-				clientui.user.setIsLoggedIn(0);
+				logic.Users.User user = (User) messageFromSrv.getDataFromServer();
+				user.setIsLoggedIn(0);
 				clientui.closeUserGUI(user);
 			} else {
 				System.out.println(messageFromSrv.getMsg());
@@ -60,12 +61,20 @@ public class ChatClient extends AbstractClient {
 			} else {
 				clientui.reciveMsgToGui("error in updating user");
 			}
+		case "GetRestaurantData":
+            if (messageFromSrv.isSucceeded()) {
+                ArrayList<Supplier> restaurantData = (ArrayList<Supplier>) messageFromSrv.getDataFromServer();
+                clientui.updateRestaurantData(restaurantData);
+            } else {
+                System.out.println("Failed to retrieve restaurant data");
+            }
 			break;
 
 		}
+		
 	}
 
-
+	
 
 	public void handleMessageFromClientUI(Object msg) {
 		try {
