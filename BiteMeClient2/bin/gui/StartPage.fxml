@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="344.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.StartPageController">
+   <children>
+      <Text layoutX="50.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter order id" />
+      <Text layoutX="144.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BiteMe Client">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <TextField fx:id="orderNumberField" layoutX="131.0" layoutY="147.0" promptText="123456" />
+      <Button fx:id="submitOrderId" layoutX="180.0" layoutY="206.0" mnemonicParsing="false" onAction="#sumbitIdToServer" text="Submit" />
+      <Button fx:id="btnExit" layoutX="190.0" layoutY="276.0" mnemonicParsing="false" onAction="#exitApp" text="Exit" />
+   </children>
+</AnchorPane>
