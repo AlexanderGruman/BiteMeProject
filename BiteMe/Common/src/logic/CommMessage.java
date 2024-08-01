@@ -3,6 +3,8 @@ package logic;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import EnumsAndConstants.CommandConstants;
+
 /**
  * Class to hold a messages between server and client.
  * 
@@ -22,7 +24,7 @@ public class CommMessage implements Serializable {
 	private String dataType; //data type of object 
 	
 	//data from client to server
-	private String commandForServer;  //command from user to perform //ENUM
+	private CommandConstants commandForServer;  //command from user to perform //ENUM
 	private ArrayList<String> messageForServer;  //command descriptions
 	private Object objectForServer; //object for server for create or else
 	
@@ -41,12 +43,12 @@ public class CommMessage implements Serializable {
 
 
 	//constructor for client use
-	public CommMessage(String commandForServer, ArrayList<String> messageForServer) {
+	public CommMessage(CommandConstants commandForServer, ArrayList<String> messageForServer) {
 		this.commandForServer = commandForServer;
 		this.messageForServer = messageForServer;
 	}
 	
-	public CommMessage(String commandForServer, ArrayList<String> messageForServer,Object objectForServer) {
+	public CommMessage(CommandConstants commandForServer, ArrayList<String> messageForServer,Object objectForServer) {
 		this.commandForServer = commandForServer;
 		this.messageForServer = messageForServer;
 		this.objectForServer = objectForServer;
@@ -113,10 +115,10 @@ public class CommMessage implements Serializable {
 	}
 	
 	public String getCommandForServer() {
-		return commandForServer;
+		return commandForServer.toString();
 	}
 	
-	public void setCommandForServer(String commandForServer) {
+	public void setCommandForServer(CommandConstants commandForServer) {
 		this.commandForServer = commandForServer;
 	}
 	

@@ -24,6 +24,8 @@ public class Order implements Serializable {
 	private String RecievedByCustomerDate;
 	private String RecievedByCustomerTime;
 	private TypeOfOrder Type;
+	//                Order updatedOrder = new Order("", orderNumber, price, 0, address); // Assuming restaurant and list number are not required here
+
 	public Order(int orderId, int numOfItems, OrderStatus status, double total_price, String restaurantId,
 			boolean isLate, String username, int deliveryID, String approvedByResDate, String approvedByResTime,
 			String recievedByCustomerDate, String recievedByCustomerTime, TypeOfOrder type) {
@@ -40,6 +42,14 @@ public class Order implements Serializable {
 		ApprovedByResTime = approvedByResTime;
 		RecievedByCustomerDate = recievedByCustomerDate;
 		RecievedByCustomerTime = recievedByCustomerTime;
+		Type = type;
+	}
+	public Order(int numOfItems,double total_price, OrderStatus status, String restaurantId, int deliveryID, TypeOfOrder type) {
+		super();
+		NumOfItems = numOfItems;
+		Status = status;
+		RestaurantId = restaurantId;
+		DeliveryID = deliveryID;
 		Type = type;
 	}
 	public int getOrderId() {

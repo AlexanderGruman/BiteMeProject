@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/fx"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="src" path="/OCSF"/>
+	<classpathentry exported="true" kind="src" path="/Common"/>
+	<classpathentry kind="lib" path="S:/Users/bld93/Github/BiteMeProject/BiteMe/BiteMeServer2/mysql-connector-java-8.0.13.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javafx"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
