@@ -39,8 +39,7 @@ public class ServerUI extends Application {
     public static boolean runDB(String username, String password, String dbName) {
 
         try {
-            serverDB.connectToDB(username, password, dbName);
-            return true;
+            return serverDB.connectToDB(username, password, dbName);
         } catch (Exception ex) {
             System.out.println("ERROR - Could not listen for clients!");
             return false;

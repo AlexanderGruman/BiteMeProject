@@ -17,8 +17,7 @@ public class serverDB {
     private static final String DB_URL = "jdbc:mysql://localhost:3306/";
     private static final String TIMEZONE_SETTINGS = "?serverTimezone=IST";
     private static Connection conn;
-                  //IP
-    //jdbc:mysql://localhost:3306/biteme/?serverTimezone=IST, root, root
+
     public static boolean connectToDB(String username, String password, String dbName) {
         try {
         	Class.forName("com.mysql.cj.jdbc.Driver");
@@ -128,19 +127,7 @@ public class serverDB {
         return new ResultSetFromDB(rs);
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+   
     //prototype Methods
 //    public static Order retrieveData(String orderNumber) {
 //        String selectSQL = "SELECT * FROM `order` WHERE Order_number = ?";

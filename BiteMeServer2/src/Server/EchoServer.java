@@ -52,7 +52,7 @@ public class EchoServer extends AbstractServer {
 			}
     	}
     }
-    
+
 	public void sendToClient(Object msg, ConnectionToClient client) {
 		try {
 			client.sendToClient(msg);
@@ -61,8 +61,6 @@ public class EchoServer extends AbstractServer {
 			System.out.println(" Error sending msg to client !");
 		}
 	}
-    
-    
 
     @Override
     protected void clientConnected(ConnectionToClient client) {
