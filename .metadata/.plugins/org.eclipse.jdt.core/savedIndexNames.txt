@@ -5,7 +5,6 @@ INDEX VERSION 1.134+C:\Users\lidor\eclipse-workspace-Final-Shitot\.metadata\.plu
 1066858719.index
 989304205.index
 1670229888.index
-2701458839.index
 1712101335.index
 2219000855.index
 3783882703.index
