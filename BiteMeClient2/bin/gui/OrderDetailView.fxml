@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="391.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.OrderDetailViewController">
+   <children>
+      <Text layoutX="93.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
+      <Text layoutX="85.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total price" />
+      <TextField fx:id="AddyField" layoutX="213.0" layoutY="240.0" />
+      <TextField fx:id="PriceField" layoutX="212.0" layoutY="285.0" />
+      <Button fx:id="btnUpdate" layoutX="233.0" layoutY="333.0" mnemonicParsing="false" onAction="#updateDbRequest" text="update" />
+      <TextField fx:id="RstField" disable="true" editable="false" layoutX="213.0" layoutY="36.0" />
+      <TextField fx:id="OrdNumField" disable="true" editable="false" layoutX="213.0" layoutY="85.0" />
+      <TextField fx:id="OrdLField" disable="true" editable="false" layoutX="212.0" layoutY="150.0" />
+      <Text layoutX="82.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Restaurant" />
+      <Text layoutX="85.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order number" />
+      <Text layoutX="76.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order list number" />
+      <Button fx:id="btnBack" layoutX="300.0" layoutY="333.0" mnemonicParsing="false" onAction="#backToStart" text="back" />
+      <Text layoutX="230.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update the following:" />
+   </children>
+</AnchorPane>

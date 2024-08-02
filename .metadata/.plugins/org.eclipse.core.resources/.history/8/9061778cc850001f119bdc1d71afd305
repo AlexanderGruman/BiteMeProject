@@ -1,0 +1,32 @@
+package EnumsAndConstants;
+
+public enum OrderStatus {
+	Pending, Approved, Recieved;
+	public static BranchLocation getEnum(String name) {
+		switch(name) {
+		case "Pending":
+			return Pending;
+		case "Approved":
+			return Approved;
+		case "Recieved":
+			return Recieved;
+		default:
+			return null;
+		}
+	}
+	
+	public String toString() {
+		switch (this) { 
+		case North:
+			return "North";
+		case Central:
+			return "Central";
+		case South:
+			return "South";
+		case All:
+			return "All";
+		default:
+			return null;
+		}
+	}
+}
