@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="800.0" prefWidth="740.0" spacing="20.0" stylesheets="@ServerPort.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ServerGui.ServerPortFrameController">
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+    <children>
+        <ImageView fitHeight="91.0" fitWidth="131.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../pics/LOGO.JPG" />
+            </image>
+        </ImageView>
+        <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Server Port" textFill="WHITE" />
+        <GridPane hgap="20" vgap="20">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="150.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="300.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label text="Port:" textFill="WHITE" GridPane.rowIndex="0" />
+                <TextField fx:id="portxt" text="5555" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <Label text="Username:" textFill="WHITE" GridPane.rowIndex="1" />
+                <TextField fx:id="usernameField" text="root" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label text="Password:" textFill="WHITE" GridPane.rowIndex="2" />
+                <PasswordField fx:id="passwordField" text="Aa123456" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label text="Database Name:" textFill="WHITE" GridPane.rowIndex="3" />
+                <TextField fx:id="databaseField" text="biteme" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            </children>
+        </GridPane>
+        <Button fx:id="btnDone" onAction="#Done" text="Connect" />
+        <Label text="Connected Users:" textFill="WHITE" />
+        <TextArea fx:id="connectedUsersTextArea" prefHeight="300.0" prefWidth="700.0" />
+        <Label fx:id="connectionStatusLabel" text="Status: Not Connected" textFill="WHITE" />
+        <Label fx:id="ipLabel" text="IP: " textFill="WHITE" />
+        <Label fx:id="hostLabel" text="Host: " textFill="WHITE" />
+        <TextArea fx:id="errorTextArea" editable="false" prefHeight="200.0" prefWidth="600.0" wrapText="true" />
+        <Button fx:id="btnExit" onAction="#getExitBtn" text="Exit" />
+    </children>
+</VBox>

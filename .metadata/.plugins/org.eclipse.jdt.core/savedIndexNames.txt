@@ -1,0 +1,14 @@
+INDEX VERSION 1.134+C:\Users\lidor\eclipse-workspace-Final-Shitot\.metadata\.plugins\org.eclipse.jdt.core
+3397625069.index
+858190638.index
+2330520289.index
+1066858719.index
+989304205.index
+1670229888.index
+2701458839.index
+1712101335.index
+2219000855.index
+3783882703.index
+3817595851.index
+1865797976.index
+2706060726.index

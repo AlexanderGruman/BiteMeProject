@@ -1,0 +1,122 @@
+package gui;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import EnumsAndConstants.CommandConstants;
+import client.ClientUI;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import logic.CommMessage;
+
+public class LoginPageController {
+
+    @FXML
+    private Button btnExit = null;
+    
+    @FXML
+    private Button btnLogin = null;
+    
+    @FXML
+    private TextField userName;
+    
+    @FXML
+    private TextField password;
+    
+    @FXML
+    private Text error;
+    
+    private static LoginPageController instance;
+    private static Stage LoginStage;
+    private ClientUI client;
+    
+    public LoginPageController() {
+        instance = this;
+    }
+
+    // singelton for the login page
+    public static LoginPageController getInstance() {
+        return instance;
+    }
+    
+    
+    // Submit button to read user input and send to server
+    public void sumbitCredentialsToServer(ActionEvent event) throws Exception {
+        String userInput = userName.getText();
+        String passInput = password.getText();
+        ArrayList<String> sendToServer = new ArrayList<String>();
+        sendToServer.add(userInput);
+        sendToServer.add(passInput);
+        client.RequestData(new CommMessage(CommandConstants.Login,sendToServer));
+        
+        ((Node)event.getSource()).getScene().getWindow().hide();
+    }
+    
+    public void logoutPressed(ActionEvent event) throws Exception {
+        ArrayList<String> sendToServer = new ArrayList<String>();
+        sendToServer.add(client.user.getUserName());
+        sendToServer.add(client.user.getPassword());
+    	client.SendLoggoutRequest(new CommMessage(CommandConstants.LogOut,sendToServer));
+    }
+    
+    
+    public void UnSuccessfullLogin(String wrong)
+    {
+    	error.setVisible(true);
+    	if(wrong.equals("userName"))
+    	{
+    		error.setText("The UserName is wrong");
+    	}
+    	else
+    		error.setText("The Password is wrong");
+    	
+    }
+    
+    
+    public void exitApp(ActionEvent event) throws Exception {
+    	 try {
+    	        // Attempt to disconnect the client
+    	        ClientUI.chat.accept("disconnect");
+    	    } catch (Exception e) {
+    	        e.printStackTrace();
+    	    }
+    	    
+    	    // Ensure the application exits gracefully
+    	    Platform.runLater(() -> {
+    	        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    	        stage.close();
+    	        Platform.exit();  // Gracefully shutdown the JavaFX application
+    	    });
+    	    
+    	    // Additional delay to ensure all tasks are completed before exiting
+    	    try {
+    	        Thread.sleep(500);  // Adjust the delay as necessary
+    	    } catch (InterruptedException e) {
+    	        e.printStackTrace();
+    	    }
+    	    
+    	    // Forcefully terminate the application
+    	    System.exit(0);
+    	}
+    }
+    
+    @FXML
+    public void exitApplication(ActionEvent event) {
+        try {
+			this.exitApp(null);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
+    
+
+}

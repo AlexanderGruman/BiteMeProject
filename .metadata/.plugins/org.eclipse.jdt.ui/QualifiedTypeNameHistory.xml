@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="gui.LoginPageController"/>
+    <fullyQualifiedTypeName name="logic.CommMessage"/>
+    <fullyQualifiedTypeName name="EnumsAndConstants.CommandConstants"/>
+    <fullyQualifiedTypeName name="gui.BranchManagerHomePageController"/>
+    <fullyQualifiedTypeName name="gui.CustomerHomeController"/>
+    <fullyQualifiedTypeName name="gui.BusinessCustomerHomePageController"/>
+</qualifiedTypeNameHistroy>
