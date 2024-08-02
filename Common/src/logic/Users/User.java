@@ -16,16 +16,10 @@ public abstract class User{
 	private String lastName;
 	private String email;
 	private String phoneNumber;
-	private UserType userType;
+	private UserType role;
 	private BranchLocation mainBranch;
 	private String id;
 	private int isLoggedIn;
-	
-	
-	//THIS DOESNT MATCH SQL TABLE
-	private int refundCredit;
-	
-	
 	
 	/**
 	 * @param id
@@ -39,7 +33,7 @@ public abstract class User{
 	 * @param mainBranch
 	 */
 	public User(String id, String userName, String password, String firstName, String lastName, String email,
-			String phoneNumber, UserType userType, BranchLocation mainBranch)
+			String phoneNumber, UserType role, BranchLocation mainBranch)
 	{
 		this.id = id;
 		this.userName = userName;
@@ -48,7 +42,7 @@ public abstract class User{
 		this.lastName = lastName;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
-		this.userType = userType;
+		this.role = role;
 		this.mainBranch = mainBranch;
 	}	
 	
@@ -101,7 +95,7 @@ public abstract class User{
 
 
 	public UserType getUserType() {
-		return userType;
+		return role;
 	}
 
 
@@ -140,8 +134,8 @@ public abstract class User{
 
 
 
-	public void setUserType(UserType userType) {
-		this.userType = userType;
+	public void setUserType(UserType role) {
+		this.role = role;
 	}
 
 
@@ -161,13 +155,7 @@ public abstract class User{
 		return id + " " + firstName + " " + lastName;
 	}
 
-	public int getRefundCredit() {
-		return refundCredit;
-	}
 
-	public void setRefundCredit(int refundCredit) {
-		this.refundCredit = refundCredit;
-	}
 	
 	
 }

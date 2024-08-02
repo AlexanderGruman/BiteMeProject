@@ -115,9 +115,16 @@ public class ClientUI extends Application {
 	}
 
 	// create connection to server.
-	public void newConnection(String ip) {
-		chat = new ClientController(ip, 5555);
+	public boolean newConnection(String ip, int port){
+		try {
+			chat = new ClientController(ip, port);
+			return true;
+		}
+		catch (IOException ex) {
+			return false;
+		}
 	}
+	
 
 	public void guiConverter(String title, String fxmlStringPath, Object controller) {
 		try {

@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import logic.CommMessage;
 
@@ -24,15 +25,29 @@ public class ConnectionPageController {
 	private TextField ipField;
 	
 	@FXML
+	private TextField portField;
+	
+	@FXML
 	private Button submitOrderId = null;
+	
+	@FXML
+	private Text errorMsg;
 	
 	private ClientUI client = new ClientUI();
 	
+	@FXML
 	public void connectToServer(ActionEvent event) throws Exception {
-		// String ipDestination = ipField.getText();
-		((Node)event.getSource()).getScene().getWindow().hide();
-		client.newConnection("localhost");
-		openUpStart();
+		String ipDestination = ipField.getText();
+		int port = Integer.parseInt(portField.getText());
+		boolean succeed = client.newConnection(ipDestination,port);
+		if(succeed) {
+			((Node)event.getSource()).getScene().getWindow().hide();
+			client.guiConverter("Connection Page", "/gui/LoginPage.fxml", new LoginPageController());
+		}
+		else {
+			errorMsg.setVisible(true);
+			errorMsg.setText("IP incorrect, server unreachable");
+		}
 	}
 	
 	
@@ -56,14 +71,7 @@ public class ConnectionPageController {
 			client.chat.accept(new CommMessage(CommandConstants.disconnectClientFromServer,sendToServer));
 	
 		
-		}
-		
-		
-	    public void openUpStart() {
-	    	
-	    	client.guiConverter("Connection Page", "/gui/LoginPage.fxml", new LoginPageController());
-	    
-	    }			
+		}		
 			
 		
 			

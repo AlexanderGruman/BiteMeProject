@@ -1,6 +1,5 @@
 package logic;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import EnumsAndConstants.*;
 
@@ -8,10 +7,8 @@ import EnumsAndConstants.*;
 *         dishName, ArrayList<Component> components, float price
  */
 
-public class items implements Serializable {
+public class items {
 
-	private static final long serialVersionUID = -3079554028160660848L;
-	
 	private int ItemID;
 	private String ItemName;
 	private float price;

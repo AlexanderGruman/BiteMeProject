@@ -21,7 +21,7 @@ public class Restaurant {
 	private ArrayList<items> Menu; // doesnt exist in sql
 
 	public Restaurant(int restaurantId, String restaurantName, String restaurantAddress, RestaurantType restaurantType,
-			String supplierId, EnumsAndConstants.BranchLocation branchLocation) {
+			String supplierId, BranchLocation branchLocation) {
 		super();
 		this.restaurantId = restaurantId;
 		this.restaurantName = restaurantName;

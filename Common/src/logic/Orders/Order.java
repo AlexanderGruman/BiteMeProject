@@ -1,6 +1,8 @@
 package logic.Orders;
 
 import java.io.Serializable;
+import java.sql.Date;
+import java.sql.Time;
 
 import EnumsAndConstants.OrderStatus;
 import EnumsAndConstants.TypeOfOrder;
@@ -18,16 +20,16 @@ public class Order implements Serializable {
 	private boolean IsLate;
 	private String Username;
 	private int DeliveryID;
-	private String ApprovedByResDate;
-	private String ApprovedByResTime;
-	private String RecievedByCustomerDate;
-	private String RecievedByCustomerTime;
+	private Date ApprovedByResDate;
+	private Time ApprovedByResTime;
+	private Date RecievedByCustomerDate;
+	private Time RecievedByCustomerTime;
 	private TypeOfOrder Type;
 	//                Order updatedOrder = new Order("", orderNumber, price, 0, address); // Assuming restaurant and list number are not required here
 
 	public Order(int orderId, int numOfItems, OrderStatus status, double total_price, String restaurantId,
-			boolean isLate, String username, int deliveryID, String approvedByResDate, String approvedByResTime,
-			String recievedByCustomerDate, String recievedByCustomerTime, TypeOfOrder type) {
+			boolean isLate, String username, int deliveryID, Date approvedByResDate, Time approvedByResTime,
+			Date recievedByCustomerDate, Time recievedByCustomerTime, TypeOfOrder type) {
 		super();
 		this.orderId = orderId;
 		NumOfItems = numOfItems;
@@ -99,28 +101,28 @@ public class Order implements Serializable {
 	public void setDeliveryID(int deliveryID) {
 		DeliveryID = deliveryID;
 	}
-	public String getApprovedByResDate() {
+	public Date getApprovedByResDate() {
 		return ApprovedByResDate;
 	}
-	public void setApprovedByResDate(String approvedByResDate) {
+	public void setApprovedByResDate(Date approvedByResDate) {
 		ApprovedByResDate = approvedByResDate;
 	}
-	public String getApprovedByResTime() {
+	public Time getApprovedByResTime() {
 		return ApprovedByResTime;
 	}
-	public void setApprovedByResTime(String approvedByResTime) {
+	public void setApprovedByResTime(Time approvedByResTime) {
 		ApprovedByResTime = approvedByResTime;
 	}
-	public String getRecievedByCustomerDate() {
+	public Date getRecievedByCustomerDate() {
 		return RecievedByCustomerDate;
 	}
-	public void setRecievedByCustomerDate(String recievedByCustomerDate) {
+	public void setRecievedByCustomerDate(Date recievedByCustomerDate) {
 		RecievedByCustomerDate = recievedByCustomerDate;
 	}
-	public String getRecievedByCustomerTime() {
+	public Time getRecievedByCustomerTime() {
 		return RecievedByCustomerTime;
 	}
-	public void setRecievedByCustomerTime(String recievedByCustomerTime) {
+	public void setRecievedByCustomerTime(Time recievedByCustomerTime) {
 		RecievedByCustomerTime = recievedByCustomerTime;
 	}
 	public TypeOfOrder getType() {

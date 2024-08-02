@@ -31,7 +31,13 @@ public class ChatClient extends AbstractClient {
 		CommMessage messageFromSrv = new CommMessage();
 		messageFromSrv = (CommMessage) msg;
 		switch (messageFromSrv.getCommandForServer()) {
-			
+		case ConnectionSuccessful:
+			if (messageFromSrv.isSucceeded()) {
+				clientui.newConnection(getHost());
+			}
+			else {
+				
+			}
 		case Login:
 			User user = (User)messageFromSrv.getDataFromServer();
 			if (messageFromSrv.isSucceeded()) {
@@ -102,10 +108,6 @@ public class ChatClient extends AbstractClient {
 		}
 	}
 	
-	@Override
-	protected void connectionEstablished() {
-		
-	}
 	
 	public void quit() {
 		try {

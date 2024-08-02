@@ -1,28 +1,24 @@
 package logic.Orders;
 
-import java.io.Serializable;
+import java.util.ArrayList;
 
-import EnumsAndConstants.TypeOfProduct;
+import EnumsAndConstants.TypeOfOrder;
 
 /**
  *
  */
-public class Delivery implements Serializable {
+public class Delivery {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 8991119981743155411L;
 	
 	private int  deliveryId;
 	private String Address;
 
-	private TypeOfProduct Type;
+	private TypeOfOrder Type;
 	private float DeliveryFee;
 	private int  orderId;
 
-	private String UsernamesOfParticipants;
-	private String NumOfParticipants;
+	private ArrayList<String> UsernamesOfParticipants;
+	private int NumOfParticipants;
 
 
 
@@ -32,8 +28,8 @@ public class Delivery implements Serializable {
 	
 	
 	
-	public Delivery(int deliveryId, String address, TypeOfProduct type, float deliveryFee, int orderId,
-			String usernamesOfParticipants, String numOfParticipants) {
+	public Delivery(int deliveryId, String address, TypeOfOrder type, float deliveryFee, int orderId,
+			ArrayList<String> usernamesOfParticipants, int numOfParticipants) {
 		super();
 		this.deliveryId = deliveryId;
 		Address = address;
@@ -61,11 +57,11 @@ public class Delivery implements Serializable {
 		return "Take Away";
 	}
 
-	public TypeOfProduct getType() {
+	public TypeOfOrder getType() {
 		return Type;
 	}
 
-	public void setType(TypeOfProduct type) {
+	public void setType(TypeOfOrder type) {
 		Type = type;
 	}
 
@@ -114,22 +110,22 @@ public class Delivery implements Serializable {
 	}
 
 
-	public String getNumOfParticipants() {
+	public int getNumOfParticipants() {
 		return NumOfParticipants;
 	}
 
 
-	public void setNumOfParticipants(String numOfParticipants) {
+	public void setNumOfParticipants(int numOfParticipants) {
 		NumOfParticipants = numOfParticipants;
 	}
 
 
-	public String getUsernamesOfParticipants() {
+	public ArrayList<String> getUsernamesOfParticipants() {
 		return UsernamesOfParticipants;
 	}
 
 
-	public void setUsernamesOfParticipants(String usernamesOfParticipants) {
+	public void setUsernamesOfParticipants(ArrayList<String> usernamesOfParticipants) {
 		UsernamesOfParticipants = usernamesOfParticipants;
 	}
 

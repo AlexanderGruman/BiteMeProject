@@ -4,7 +4,7 @@ import java.io.Serializable;
 import EnumsAndConstants.BranchLocation;
 import logic.Users.BranchManager;
 
-public class Branch implements Serializable {
+public class Branch{
 
 	/**
 	 * 
@@ -12,7 +12,6 @@ public class Branch implements Serializable {
 	private BranchLocation branchLocation;
 	private int NumOfRestaurants;
 	private BranchManager branchManager;
-	private static final long serialVersionUID = 7545747177565237611L;
 
 	
 	public Branch(BranchLocation branchLocation, BranchManager branchManager, int NumOfRestaurants) {

@@ -15,35 +15,6 @@ public class Component implements Serializable {
 	private String restrictions;
 	private ProductSize size;
 	private Doneness doneness;
-	//public static final float largeSizePrice = (float) 1.25;
-	//public static final float smallSizePrice = (float) 0.67;
-
-//	/**
-//	 * constructor for supplier who wants to add new component:
-//	 * 
-//	 * @param size
-//	 * @param doneness
-//	 * @param restrictions
-//	 */
-//	public Component(Size size, Doneness doneness, String restrictions) {
-//		this.size = size;
-//		this.doneness = doneness;
-//		this.restrictions = restrictions;
-//	}
-//
-//	/**
-//	 * constructor for supplier who wants to add new component:
-//	 * 
-//	 * @param componentId
-//	 * @param size
-//	 * @param doneness
-//	 * @param restrictions
-//	 */
-//	public Component(int componentId, Size size, Doneness doneness, String restrictions) {
-//		this.size = size;
-//		this.doneness = doneness;
-//		this.restrictions = restrictions;
-//	}
 
 	/**
 	 * Constructor to create new size component.

@@ -2,7 +2,7 @@ package EnumsAndConstants;
 
 public enum TypeOfOrder {
 
-	PRE, Regular;
+	PRE, Regular, Shared, Robot, PickUp;
 
 
 }
